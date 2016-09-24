@@ -501,13 +501,13 @@ uint8_t setPIDgain(void)
 
   int8_t data_buffer[20] = {0};
 
-//  if(tuningData[0].kd > 0){
-//    
-//     kpt= (float)tuningData[0].kp *0.02f;
-//     kit= (float)tuningData[0].ki *0.02f; 
-//     kdt= (float)tuningData[0].kd *0.02f;
-//    
-//  }else{
+  if(tuningData[0].kd > 0){
+    
+     kpt= (float)tuningData[0].kp *0.02f;
+     kit= (float)tuningData[0].ki *0.02f; 
+     kdt= (float)tuningData[0].kd *0.02f;
+    
+  }else{
 
   yaw_data_buffer[0] = (uint8_t)(tuningData[0].kp >> 8);
   yaw_data_buffer[1] = (uint8_t)(tuningData[0].kp);
@@ -516,7 +516,7 @@ uint8_t setPIDgain(void)
   yaw_data_buffer[4] = (uint8_t)(tuningData[0].kd >> 8);
   yaw_data_buffer[5] = (uint8_t)(tuningData[0].kd);
 
-//  }
+  }
 
   data_buffer[0] = yaw_data_buffer[0];
   data_buffer[1] = yaw_data_buffer[1];
